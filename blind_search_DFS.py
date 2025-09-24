@@ -32,7 +32,7 @@ def blind_search_DFS_Limit(graph, start, depth_limit):
 
 def reconstruct_path(parent: Dict[Node, Optional[Node]], goal: Node) -> List[Node]:
     path: List[Node] = []
-    cur: Optional[node] = goal
+    cur: Optional[Node] = goal
     while cur is not None:
         path.append(cur)
         cur = parent[cur]
