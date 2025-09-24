@@ -73,7 +73,12 @@ path = random_blind_search("S", is_goal, neighbors, seed=42)
 print("path found:", path)
 
 
-    
+"""
+Blind search is not a good strategy.
+There is no rule determining which node is "correct" (no FIFO like BFS, no LIFO like DFS, no cost/heuristics). The choice is arbitrary/random.
+And it is not deterministic.
+Two runs can take different paths and take different times (depending on the random/arbitrary choice).
+"""
 
 
 
