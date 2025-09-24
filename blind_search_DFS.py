@@ -1,3 +1,7 @@
+from typing import Dict, List, Optional, Hashable, Iterable, Callable
+
+Node = Hashable
+Graph = Dict[Node, List[Node]]
 
 def blind_search_DFS(graph, start):
     visited = set()   # creat a set to store visited nodes 
@@ -24,6 +28,41 @@ def blind_search_DFS_Limit(graph, start, depth_limit):
                 for v in reversed(graph.get(vertex, [])):
                     stack.append((v, depth + 1))
     return visited
+
+
+def reconstruct_path(parent: Dict[Node, Optional[Node]], goal: Node) -> List[Node]:
+    path: List[Node] = []
+    cur: Optional[node] = goal
+    while cur is not None:
+        path.append(cur)
+        cur = parent[cur]
+    return list(reversed(path))
+
+
+def dfs_with_sharing_path(graph: Graph, start: Node, goal: Node) -> Optional[list[Node]]:
+
+    stack: List[Node] = [start]
+    visited = set()
+    parent: Dict[Node, Optional[Node]] = {start: None}
+
+    while stack:
+        v = stack.pop()
+        if v == goal:
+            continue
+        visited.add(v)
+
+        if v == goal:
+            return reconstruct_path(parent, v)
+        
+        for neigh in reversed(graph.fet(v, [])):
+            if neigh not in parent:
+                parent[neigh] = v
+            if neigh not in visited:
+                stack.append(neigh)
+    return None
+
+def def_with_sharing_pred():
+    pass
 
 
 
