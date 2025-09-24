@@ -21,8 +21,8 @@ def blind_search_DFS_Limit(graph, start, depth_limit):
             if vertex not in visited:
                 visited.add(vertex)
                 print(vertex, end=' ')
-                for v in reversed(graph[vertex]):
-                    stack.append([(v, depth + 1)])
+                for v in reversed(graph.get(vertex, [])):
+                    stack.append((v, depth + 1))
     return visited
 
 
@@ -37,5 +37,9 @@ graph = {
   'E': [],
   'F': []
 }
-blind_search_DFS(graph, 'A')
+blind_search_DFS(graph, 'A')         
+print()                               
+blind_search_DFS_Limit(graph, 'A', 1)
+print()
+blind_search_DFS_Limit(graph, 'A', 2) 
 
