@@ -12,6 +12,22 @@ def blind_search_DFS(graph, start):
     return visited
 
 
+def blind_search_DFS_Limit(graph, start, depth_limit):
+    visited = set()
+    stack = [(start, 0)] # stack of tuples (node, depth)
+    while stack:
+        vertex, depth = stack.pop()
+        if depth < depth_limit:
+            if vertex not in visited:
+                visited.add(vertex)
+                print(vertex, end=' ')
+                for v in reversed(graph[vertex]):
+                    stack.append([(v, depth + 1)])
+    return visited
+
+
+
+
 # Example usage:
 graph = {
   'A': ['B','C'],
