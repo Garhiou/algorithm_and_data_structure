@@ -22,7 +22,7 @@ def h(n: str) -> float:
 # H = {"S": 35, "B": 28, "F": 32, "A": 40, "E": 22, "C": 20, "G": 18, "D": 12, "Z": 0}
 # def h(n: str) -> float: return H[n]
 
-# -------- A* nach Professor-Folie --------
+
 def a_star(
     graph: Dict[str, Dict[str, int]],
     start: str,
